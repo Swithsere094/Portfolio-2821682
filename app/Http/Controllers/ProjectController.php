@@ -7,16 +7,16 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PortfolioController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $portfolio = Project::latest()->paginate(4);
+        $projects = Project::latest()->paginate(4);
 
-        return view('portfolio', compact('portfolio'));
+        return view('projects.index', compact('projects'));
     }
 
     /**
@@ -38,10 +38,9 @@ class PortfolioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Project $project)
     {
-        $project = Project::find($id);
-        return view('show', compact('project'));
+        return view('projects.show', compact('project'));
     }
 
     /**

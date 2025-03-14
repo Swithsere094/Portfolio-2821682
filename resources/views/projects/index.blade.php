@@ -6,11 +6,11 @@
     <h1>@lang('Portfolio')</h1>
 
     <ul>
-        @forelse ($portfolio as $portfolioItem)
-            <li> <a href="{{ route('portfolio.show', $portfolioItem) }}">{{ $portfolioItem->title }}</a> </li>
+        @forelse ($projects as $project)
+            <li> <a href="{{ route('projects.show', $project) }}">{{ $project->title }}</a> </li>
         @empty
             <li>No se encuentran elementos</li>
         @endforelse
-        {{ $portfolio->links('pagination::bootstrap-4') }}
+        {{ $projects->links('pagination::bootstrap-4') }}
     </ul>
 @endsection
