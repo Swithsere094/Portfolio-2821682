@@ -24,7 +24,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -32,7 +32,19 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            "title" => "required",
+            "url" => "required",
+            "description" => "required"
+        ]);
+
+        Project::create([
+            "title" => $validated["title"],
+            "url" => $validated["url"],
+            "description" => $validated["description"]
+        ]);
+
+        return redirect()->route("projects.index");
     }
 
     /**
