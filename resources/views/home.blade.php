@@ -4,5 +4,5 @@
 
 @section('content')
     <h1>@lang('Home')</h1>
-    {{-- __('Home') --}}
+
 @endsection
