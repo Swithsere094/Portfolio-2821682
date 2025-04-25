@@ -25,6 +25,6 @@ class MessageController extends Controller
 
         Mail::to('djcastillo@sena.edu.co')->send(new MessageReceived($validated));
 
-        return "Correo enviado satisfactoriamente.";
+        return back()->with("status", "El correo se envió, te contactaremos pronto.");
     }
 }
